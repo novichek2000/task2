@@ -37,7 +37,6 @@ Vagrant.configure("2") do |config|
     config.vm.define "tomcat1" do |tomcat1|
         tomcat1.vm.box = "bento/centos-7.5"
         tomcat1.vm.hostname = "tomcat1"
-        tomcat1.vm.network "forwarded_port", guest: 8080, host: 18001
         tomcat1.vm.network "private_network", ip: "192.168.33.11"
         tomcat1.vm.provision "shell", inline: <<-SHELL
             yum -y install java-1.8.0-openjdk
@@ -54,7 +53,6 @@ Vagrant.configure("2") do |config|
     config.vm.define "tomcat2" do |tomcat2|
         tomcat2.vm.box = "bento/centos-7.5"
         tomcat2.vm.hostname = "tomcat2"
-        tomcat2.vm.network "forwarded_port", guest: 8080, host: 18002
         tomcat2.vm.network "private_network", ip: "192.168.33.12"
         tomcat2.vm.provision "shell", inline: <<-SHELL
             yum -y install java-1.8.0-openjdk
